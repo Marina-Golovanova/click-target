@@ -16,7 +16,7 @@ export class Game extends Phaser.Scene {
     this.elements = {};
     this.texts = {};
 
-    this.timeLeft = 60;
+    this.timeLeft = 3;
 
     this.width = window.innerWidth;
     this.height = window.innerHeight;
@@ -123,6 +123,7 @@ export class Game extends Phaser.Scene {
     if (this.timeLeft === -1) {
       this.targets.resetTimer();
       this.gameTimer.remove();
+      this.targets.removeAllListeners();
       this.scene.start(scenes.finish, { score: scoreModel.score });
     } else {
       this.texts.timeLeftText.setText(this.timeLeft + " sec");

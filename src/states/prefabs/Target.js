@@ -16,13 +16,21 @@ export class Target extends Phaser.GameObjects.Sprite {
     const targetAttributes = this.generateAttributes(scene);
     const target = new Target(scene, targetAttributes);
     target.setScale(0);
+
     return target;
   }
 
   init() {
     this.clicked = false;
 
-    this.setInteractive();
+    this.setInteractive(
+      new Phaser.Geom.Circle(
+        0 + this.width / 2,
+        0 + this.height / 2,
+        this.width / 2
+      ),
+      Phaser.Geom.Circle.Contains
+    );
     this.scene.add.existing(this);
 
     this.on("pointerdown", () => {
