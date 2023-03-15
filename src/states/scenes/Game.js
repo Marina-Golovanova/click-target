@@ -16,7 +16,7 @@ export class Game extends Phaser.Scene {
     this.elements = {};
     this.texts = {};
 
-    this.timeLeft = 3;
+    this.timeLeft = 60;
 
     this.width = window.innerWidth;
     this.height = window.innerHeight;
